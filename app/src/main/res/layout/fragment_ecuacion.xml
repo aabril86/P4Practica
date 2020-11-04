@@ -5,17 +5,17 @@
     android:orientation="vertical">
 
     <EditText
-        android:id="@+id/a"
+        android:id="@+id/x2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="x2"/>
     <EditText
-        android:id="@+id/b"
+        android:id="@+id/x"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="x"/>
     <EditText
-        android:id="@+id/c"
+        android:id="@+id/num"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="0"/>

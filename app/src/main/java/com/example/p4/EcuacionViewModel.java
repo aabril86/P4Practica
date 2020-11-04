@@ -29,8 +29,12 @@ public class EcuacionViewModel extends AndroidViewModel {
         executor.execute(new Runnable() {
             @Override
             public void run() {
-                double ecuacioResultat = simulador.calcular(solicitud);
-                resultat.postValue(ecuacioResultat);
+                simulador.calcular(solicitud, new SimuladorEcuacion.Callback() {
+                    @Override
+                    public void cuandoEsteCalculadaLaEcuacion(double ecuacioResultat) {
+                        resultat.postValue(ecuacioResultat);
+                    }
+                });
             }
         });
     }

@@ -1,5 +1,7 @@
 package com.example.p4;
 
+import android.telecom.Call;
+
 public class SimuladorEcuacion {
 
     public static class Solicitud {
@@ -15,7 +17,11 @@ public class SimuladorEcuacion {
         }
     }
 
-    public double calcular(Solicitud solicitud) {
+    interface Callback {
+        void cuandoEsteCalculadaLaEcuacion(double resultat);
+    }
+
+    public void calcular(Solicitud solicitud, Callback callback) {
 
         double res;
 
@@ -33,6 +39,6 @@ public class SimuladorEcuacion {
 
         res = res / (2 * solicitud.x2);
 
-        return res;
+        callback.cuandoEsteCalculadaLaEcuacion(res);
     }
 }
