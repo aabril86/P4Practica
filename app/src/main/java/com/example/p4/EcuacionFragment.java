@@ -45,5 +45,27 @@ public class EcuacionFragment extends Fragment {
                 binding.resultat.setText(String.format("%.2f", resultat));
             }
         });
+
+        ecuacionViewModel.errorX2.observe(getViewLifecycleOwner(), new Observer<Double>() {
+            @Override
+            public void onChanged(Double x2Cero) {
+                if(x2Cero != null){
+                    binding.x2.setError("El capital no puede ser igual a " + x2Cero);
+                }else {
+                    binding.x2.setError(null);
+                }
+            }
+        });
+
+        ecuacionViewModel.errorRaiz.observe(getViewLifecycleOwner(), new Observer<Integer>() {
+            @Override
+            public void onChanged(Integer raizMinima) {
+                if (raizMinima != null){
+                    binding.num.setError("El discriminante es inferior a " + raizMinima +", no se puede calcular");
+                }else {
+                    binding.num.setError(null);
+                }
+            }
+        });
     }
 }

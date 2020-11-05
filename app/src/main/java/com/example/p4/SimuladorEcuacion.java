@@ -19,26 +19,51 @@ public class SimuladorEcuacion {
 
     interface Callback {
         void cuandoEsteCalculadaLaEcuacion(double resultat);
+
+        void cuandoHayaErrorDeX2IgualACero(double x2Cero);
+
+        void cuandoHayaErrorDeRaiz(int raizMinima);
     }
 
     public void calcular(Solicitud solicitud, Callback callback) {
 
-        double res;
+        double res, sqrt;
+        double x2Cero = 0;
+        int raizMinima = 0;
 
         try {
 
             Thread.sleep(2000);
 
-        }catch (InterruptedException e) {}
+        } catch (InterruptedException e) {
+        }
 
         res = (solicitud.x * solicitud.x) - 4 * solicitud.x2 * solicitud.num;
 
-        res = Math.sqrt(res);
+        sqrt = Math.sqrt(res);
 
-        res = - solicitud.x + res;
 
-        res = res / (2 * solicitud.x2);
+        boolean error = false;
 
-        callback.cuandoEsteCalculadaLaEcuacion(res);
+        if (solicitud.x2 == x2Cero) {
+            callback.cuandoHayaErrorDeX2IgualACero(x2Cero);
+            error = true;
+        }
+
+        if (res < raizMinima) {
+            callback.cuandoHayaErrorDeRaiz(raizMinima);
+            error = true;
+        }
+
+        if (!error) {
+
+            res = -solicitud.x + sqrt;
+
+            res = res / (2 * solicitud.x2);
+
+            callback.cuandoEsteCalculadaLaEcuacion(res);
+
+        }
+
     }
 }
