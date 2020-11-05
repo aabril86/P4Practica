@@ -30,9 +30,9 @@ public class EcuacionFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
-                float x2 = Float.parseFloat(binding.x2.getText().toString());
-                float x = Float.parseFloat(binding.x.getText().toString());
-                float num = Float.parseFloat(binding.num.getText().toString());
+                double x2 = Float.parseFloat(binding.x2.getText().toString());
+                double x = Float.parseFloat(binding.x.getText().toString());
+                double num = Float.parseFloat(binding.num.getText().toString());
 
                 ecuacionViewModel.calcular(x2,x,num);
             }

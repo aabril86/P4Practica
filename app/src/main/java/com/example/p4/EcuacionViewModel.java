@@ -22,7 +22,7 @@ public class EcuacionViewModel extends AndroidViewModel {
         simulador = new SimuladorEcuacion();
     }
 
-    public void calcular(float x2, float x, float num) {
+    public void calcular(double x2, double x, double num) {
 
         final SimuladorEcuacion.Solicitud solicitud = new SimuladorEcuacion.Solicitud(x2,x,num);
 

@@ -6,11 +6,11 @@ public class SimuladorEcuacion {
 
     public static class Solicitud {
 
-        public float x2;
-        public float x;
-        public float num;
+        public double x2;
+        public double x;
+        public double num;
 
-        public Solicitud(float x2, float x, float num) {
+        public Solicitud(double x2, double x, double num) {
             this.x2 = x2;
             this.x = x;
             this.num = num;
@@ -31,7 +31,7 @@ public class SimuladorEcuacion {
 
         }catch (InterruptedException e) {}
 
-        res = (solicitud.x * solicitud.x) - (4 * solicitud.x2 * solicitud.num);
+        res = (solicitud.x * solicitud.x) - 4 * solicitud.x2 * solicitud.num;
 
         res = Math.sqrt(res);
 
